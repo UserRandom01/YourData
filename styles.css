@@ -492,7 +492,7 @@ button[type="submit"]:hover {
         margin: auto;
         margin-top: 10px;
         height: 85%;
-        overflow: scroll;
+        overflow-x: scroll;
     }
 
     #dataContainer th {
@@ -504,26 +504,13 @@ button[type="submit"]:hover {
     #dataContainer td {
         padding: 5px;
         font-size: .75em;
+        font-size: 1em;
         overflow: auto;
         user-select: none;
         -webkit-user-select: none;
+        min-width: 110px;
     }
 
-    #dataTable thead th:nth-child(5) {
-        display: none;
-    }
-
-    #dataTable tbody td:nth-child(5) {
-        display: none;
-    }
-
-    #dataTable thead th:nth-child(3) {
-        display: none;
-    }
-
-    #dataTable tbody td:nth-child(3) {
-        display: none;
-    }
 
     .deleterow-btn {
         all: unset;
@@ -566,8 +553,12 @@ button[type="submit"]:hover {
     }
 
     .nav-bar-cnt {
-        background: rgba(0, 0, 0, 0.22);
+        background: rgba(0, 0, 0, 0.1);
+        width: 250px;
         width: 2;
     }
 
+    .navs-cnt {
+        position: unset;
+    }
 }
