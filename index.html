@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Example</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="logo-cnt">
+            <a href="">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z" />
+                    </svg>
+                </div>
+                <div class="logo-title">
+                    YourData
+                </div>
+            </a>
+        </div>
+        <nav>
+            <div class="menu-icon" onclick="openNav()">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                </svg>
+            </div>
+            <div class="nav-bar" id="nav-bar">
+                <div class="close-nav-body" onclick="closeNavBody()">
+
+                </div>
+                <div class="nav-bar-cnt" id="nav-bar-cnt">
+                    <div class="nav-close-icon">
+                        <svg onclick="closeNavBody()" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                        </svg>
+                    </div>
+                    <div class="navs-cnt">
+                        <div class="navs">
+                            <div>Total Earned : <span id="totalMoneyEarned"> </span></div>
+                        </div>
+                        <div class="navs">
+                            <div>Total petrol : <span id="totalPetrol"> </span></div>
+                        </div>
+                        <div class="navs">
+                            <div>Total Net Earnings : <span id="totalMoneyDifference"> </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="sec-one">
+            <div class="add-btn">
+                <button id="addButton">Add</button>
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Add Data</h2>
+                    <form id="dataForm">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" required><br>
+
+                        <label for="routeName">Route Name:</label>
+                        <input type="text" id="routeName" placeholder="Route Name" required><br>
+
+                        <label for="totalAssigned">Total Assigned:</label>
+                        <input type="number" id="totalAssigned" required><br>
+
+                        <label for="totalDelivered">Total Delivered:</label>
+                        <input type="number" id="totalDelivered" required><br>
+
+                        <label for="petrol">Petrol:</label>
+                        <input type="number" id="petrol" required><br>
+
+                        <label for="moneyEarned">Total Money Earned:</label>
+                        <input type="number" id="moneyEarned" required><br>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Delete Confirmation Modal -->
+            <div id="deleteModal" class="modal">
+                <div class="modal-content">
+                    <h2>Delete Confirmation</h2>
+                    <p>Are you sure you want to delete this entry?</p>
+                    <div class="delete-cnfrm-btns">
+                        <button id="deleteNo">No</button>
+                        <button id="deleteYes" class="del-yes-btn">Yes</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dataContainer">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Route</th>
+                            <th>T-Assigned</th>
+                            <th>T-Delivered</th>
+                            <th>Clousure</th>
+                            <th>Petrol</th>
+                            <th>Earned</th>
+                            <th>Net Earning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Existing data rows will be added here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

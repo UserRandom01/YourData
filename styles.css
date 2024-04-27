@@ -1,0 +1,573 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: "Work Sans", sans-serif; */
+    /* font-family: "Roboto", sans-serif; */
+    font-family: "Poppins", sans-serif;
+}
+
+
+td {
+    font-family: "Work Sans", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+
+header {
+    height: 65px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-cnt {
+    width: fit-content;
+    padding: 4px;
+}
+
+.logo-cnt a {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+}
+
+.logo-icon {
+    padding: 4px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-icon svg {
+    width: 30px;
+}
+
+.logo-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 70px;
+    padding: 4px;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+nav {
+    padding: 4px;
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding: 4px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-icon svg {
+    width: 30px;
+    padding: 4px;
+}
+
+.nav-bar {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.close-nav-body {
+    width: calc(100% - 300px);
+    height: 100%;
+}
+
+.nav-bar-cnt {
+    height: 100%;
+    width: 300px;
+    position: relative;
+    transform: translate(300px);
+    transition: all .3s ease;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 12px -6px black;
+    /* background: rgba(255, 255, 255, 0.005); */
+    background: transparent;
+}
+
+.nav-close-icon {
+    padding: 12px;
+}
+
+.nav-close-icon svg {
+    height: 40px;
+    width: 40px;
+    padding: 6px;
+    margin-left: auto;
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+
+.navs-cnt {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.navs {
+    padding: 10px;
+    margin: 6px 0;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+}
+
+.navs span {
+    position: absolute;
+    right: 0;
+    min-width: 80px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+main {
+    width: 100%;
+    height: calc(100vh - 65px);
+}
+
+.sec-one {
+    height: 100%;
+}
+
+.add-btn {
+    height: 70px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addButton {
+    padding: 10px;
+    min-width: 120px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #45a049;
+    color: white;
+    border: 0;
+}
+
+#dataContainer {
+    height: calc(100% - 80px);
+    padding: 12px;
+    width: 90%;
+    margin: auto;
+    overflow: auto;
+}
+
+#dataContainer table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#dataContainer th,
+#dataContainer td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: fit-content;
+}
+
+#dataContainer th {
+    user-select: none;
+    background-color: #f2f2f2;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+.deleterow-btn {
+    position: absolute;
+    border: 0;
+    transform: translate(-40px);
+    visibility: hidden;
+    transition: all .1s ease;
+}
+
+
+.deleteRow {
+    padding: 14px 6px;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    border: 0;
+    background: red;
+    color: white;
+    width: 80px;
+    border-radius: 4px;
+    font-size: .85em;
+}
+
+tr:hover .deleterow-btn {
+    visibility: visible;
+    transition: all .3s ease 2s;
+    transform: translate(-64px);
+}
+
+.routename-class {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+    padding: 20px 0;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 50%;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type='date'] {
+    padding: 8px;
+    margin: 12px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"],
+input[type="number"],
+button[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+.delete-cnfrm-btns {
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+    justify-content: right;
+}
+
+.delete-cnfrm-btns button {
+    padding: 8px 4px;
+    font-size: .9em;
+    min-width: 85px;
+    border-radius: 6px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.delete-cnfrm-btns .del-yes-btn {
+    background: #45a049;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:850px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden !important;
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+    }
+
+    .sec-one {
+        height: 100%;
+        width: 100%;
+    }
+
+    .add-btn {
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    #addButton {
+        padding: 6px;
+        min-width: 120px;
+        cursor: pointer;
+        border-radius: 6px;
+        font-size: 1em;
+    }
+
+
+
+
+
+
+
+
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 4px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #dataContainer {
+        padding: 6px;
+        width: 100%;
+        margin: auto;
+        margin-top: 10px;
+        height: 85%;
+        overflow: scroll;
+    }
+
+    #dataContainer th {
+        position: sticky;
+        top: -8px;
+    }
+
+    #dataContainer th,
+    #dataContainer td {
+        padding: 5px;
+        font-size: .75em;
+        overflow: auto;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    #dataTable thead th:nth-child(5) {
+        display: none;
+    }
+
+    #dataTable tbody td:nth-child(5) {
+        display: none;
+    }
+
+    #dataTable thead th:nth-child(3) {
+        display: none;
+    }
+
+    #dataTable tbody td:nth-child(3) {
+        display: none;
+    }
+
+    .deleterow-btn {
+        all: unset;
+        position: absolute;
+        transform: translate(-70px);
+        visibility: hidden;
+    }
+
+
+    .deleteRow {
+        all: unset;
+        user-select: none;
+    }
+
+    tr:hover .deleterow-btn {
+        visibility: visible;
+        transition: all .3s ease;
+        transform: translate(-50px);
+        visibility: visible;
+        background: red;
+        border-radius: 4px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .nav-bar {
+        z-index: 10;
+    }
+
+    .nav-bar-cnt {
+        background: rgba(0, 0, 0, 0.22);
+        width: 2;
+    }
+
+}
