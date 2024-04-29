@@ -111,9 +111,10 @@ document.addEventListener("DOMContentLoaded", function () {
         dataTableBody.insertBefore(newRow, dataTableBody.firstChild);
 
         // Apply green background if the entry date is today
-        if (entryDate.toDateString() === today.toDateString()) {
-            newRow.style.backgroundColor = "lightgreen";
-        }
+
+        // if (entryDate.toDateString() === today.toDateString()) {
+        //     newRow.style.backgroundColor = "lightgreen";
+        // }
 
         saveDataToLocalStorage();
         updateSummary();
@@ -186,3 +187,64 @@ function closeNavBody() {
     document.getElementById('nav-bar').style.visibility = 'hidden'
     document.getElementById('nav-bar-cnt').style.transform = 'translate(300px)'
 }
+
+
+
+
+
+
+// Function to change color scheme to white and store it in local storage
+function changeWhite() {
+    var root = document.documentElement;
+
+    // Update the values of CSS variables for white color scheme
+    root.style.setProperty('--cplt1', '#fff');
+    root.style.setProperty('--white', '#121212');
+    root.style.setProperty('--blackpointfiveopacity', 'rgba(255, 255, 255, 0.1)');
+    root.style.setProperty('--whitepointfiveopacity', 'rgba(0, 0, 0, 0.1)');
+
+    // Store the color scheme in local storage
+    localStorage.setItem('colorScheme', 'white');
+}
+
+// Function to change color scheme to black and store it in local storage
+function changeBlack() {
+    var root = document.documentElement;
+
+    // Update the values of CSS variables for black color scheme
+    root.style.setProperty('--cplt1', '#121212');
+    root.style.setProperty('--white', '#fff');
+    root.style.setProperty('--blackpointfiveopacity', 'rgba(0, 0, 0, 0.05)');
+    root.style.setProperty('--whitepointfiveopacity', 'rgba(255, 255, 255, 0.05)');
+
+    // Store the color scheme in local storage
+    localStorage.setItem('colorScheme', 'black');
+}
+
+// Function to change color scheme to AF Blue and store it in local storage
+function changeAFBlue() {
+    var root = document.documentElement;
+
+    // Update the values of CSS variables for AF Blue color scheme
+    root.style.setProperty('--cplt1', '#283845');
+    root.style.setProperty('--white', 'white');
+
+    // Store the color scheme in local storage
+    localStorage.setItem('colorScheme', 'afBlue');
+}
+
+// Function to apply stored color scheme
+function applyStoredColorScheme() {
+    var storedScheme = localStorage.getItem('colorScheme');
+    if (storedScheme === 'white') {
+        changeWhite();
+    } else if (storedScheme === 'black') {
+        changeBlack();
+    } else if (storedScheme === 'afBlue') {
+        changeAFBlue();
+    }
+}
+
+// Apply stored color scheme when the page loads
+window.onload = applyStoredColorScheme;
+
