@@ -186,6 +186,9 @@ function openNav() {
 function closeNavBody() {
     document.getElementById('nav-bar').style.visibility = 'hidden'
     document.getElementById('nav-bar-cnt').style.transform = 'translate(300px)'
+
+    document.getElementById('weekly-transactions-body').style.visibility = 'hidden'
+    document.getElementById('weekly-transactions-body').style.transform = 'translate(30%, -40%)'
 }
 
 
@@ -248,3 +251,273 @@ function applyStoredColorScheme() {
 // Apply stored color scheme when the page loads
 window.onload = applyStoredColorScheme;
 
+
+
+
+
+// Function to update the net earnings for the present day in the div
+function updateTodaysNetIncome() {
+    var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+    var tableBody = document.getElementById("dataTable").getElementsByTagName('tbody')[0]; // Get the tbody element
+    var rows = tableBody.querySelectorAll("tr");
+    var todaysNetIncome = 0;
+
+    rows.forEach(function (row) {
+        var rowDate = row.dataset.date;
+        if (rowDate === today) {
+            var moneyDifference = parseInt(row.querySelector("td:nth-child(8)").textContent);
+            todaysNetIncome += moneyDifference;
+        }
+    });
+
+    document.getElementById("todays-net-income").textContent = todaysNetIncome;
+}
+
+// Call the function to update net earnings when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+    updateTodaysNetIncome();
+});
+
+
+function weeklyContainerVisibile() {
+    document.getElementById('weekly-transactions-body').style.visibility = 'visible'
+    document.getElementById('weekly-transactions-body').style.transform = 'translate(15%, -40%)'
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function displayWeeklyTransactions() {
+    var dataTableBody = document.querySelector("#dataTable tbody");
+    var weeklyTransactionsCnt = document.querySelector(".weekly-transactions-cnt");
+
+    // Clear previous content
+    weeklyTransactionsCnt.innerHTML = "";
+
+    // Initialize an object to store weekly totals
+    var weeklyTotals = {};
+
+    // Iterate through the rows in the table
+    var rows = dataTableBody.querySelectorAll("tr");
+    rows.forEach(function (row) {
+        var date = new Date(row.dataset.date);
+        var weekNumber = getWeekNumber(date);
+
+        // Initialize weekly totals if not already present
+        if (!weeklyTotals[weekNumber]) {
+            weeklyTotals[weekNumber] = {
+                income: 0,
+                petrol: 0,
+                difference: 0
+            };
+        }
+
+        // Update weekly totals
+        var income = parseInt(row.querySelector("td:nth-child(7)").textContent);
+        var petrol = parseInt(row.querySelector("td:nth-child(6)").textContent);
+        var difference = parseInt(row.querySelector("td:nth-child(8)").textContent);
+
+        weeklyTotals[weekNumber].income += income;
+        weeklyTotals[weekNumber].petrol += petrol;
+        weeklyTotals[weekNumber].difference += difference;
+    });
+
+    // Render weekly transactions
+    for (var weekNumber in weeklyTotals) {
+        if (weeklyTotals.hasOwnProperty(weekNumber)) {
+            var weekData = weeklyTotals[weekNumber];
+            var weekDiv = document.createElement("div");
+            weekDiv.classList.add("week-summary");
+
+            // Format the week display
+            var startDate = getStartDateOfWeek(parseInt(weekNumber));
+            var endDate = new Date(startDate);
+            endDate.setDate(endDate.getDate() + 6); // Add 6 days to get the end date of the week
+
+            var weekDisplay = "Week " + weekNumber + ": " + formatDate(startDate) + " - " + formatDate(endDate);
+
+            // Construct the HTML for the week summary
+            weekDiv.innerHTML = "<h3 class='week-number'>" + weekDisplay + "</h3>" +
+                "<p>Total Income: " + weekData.income + "</p>" +
+                "<p>Total Petrol: " + weekData.petrol + "</p>" +
+                "<p>Net Difference: " + weekData.difference + "</p>";
+
+            // Append the week summary to the weeklyTransactionsCnt div
+            weeklyTransactionsCnt.appendChild(weekDiv);
+        }
+    }
+}
+
+// Function to get the week number of a date
+function getWeekNumber(date) {
+    var firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+    var pastDaysOfYear = (date - firstDayOfYear) / 86400000;
+    return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+}
+
+// Function to get the start date of a week based on the week number
+function getStartDateOfWeek(weekNumber) {
+    var januaryFirst = new Date(new Date().getFullYear(), 0, 1);
+    var daysOffset = (weekNumber - 1) * 7;
+    return new Date(januaryFirst.getTime() + daysOffset * 24 * 60 * 60 * 1000);
+}
+
+// Function to format date as "YYYY-MM-DD"
+function formatDate(date) {
+    return date.getFullYear() + "-" + (date.getMonth() + 1).toString().padStart(2, '0') + "-" + date.getDate().toString().padStart(2, '0');
+}
+
+// Call the function to display weekly transactions when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+    displayWeeklyTransactions();
+});
+
+function displayWeeklyTransactions() {
+    var dataTableBody = document.querySelector("#dataTable tbody");
+    var weeklyTransactionsCnt = document.querySelector(".weekly-transactions-cnt");
+
+    // Clear previous content
+    weeklyTransactionsCnt.innerHTML = "";
+
+    // Initialize an object to store weekly totals
+    var weeklyTotals = {};
+
+    // Iterate through the rows in the table
+    var rows = dataTableBody.querySelectorAll("tr");
+    rows.forEach(function (row) {
+        var date = new Date(row.dataset.date);
+        var weekNumber = getWeekNumber(date);
+
+        // Initialize weekly totals if not already present
+        if (!weeklyTotals[weekNumber]) {
+            weeklyTotals[weekNumber] = {
+                income: 0,
+                petrol: 0,
+                difference: 0
+            };
+        }
+
+        // Update weekly totals
+        var income = parseInt(row.querySelector("td:nth-child(7)").textContent);
+        var petrol = parseInt(row.querySelector("td:nth-child(6)").textContent);
+        var difference = parseInt(row.querySelector("td:nth-child(8)").textContent);
+
+        weeklyTotals[weekNumber].income += income;
+        weeklyTotals[weekNumber].petrol += petrol;
+        weeklyTotals[weekNumber].difference += difference;
+    });
+
+    // Render weekly transactions
+    for (var weekNumber in weeklyTotals) {
+        if (weeklyTotals.hasOwnProperty(weekNumber)) {
+            var weekData = weeklyTotals[weekNumber];
+            var weekDiv = document.createElement("div");
+            weekDiv.classList.add("week-summary");
+
+            // Format the week display
+            var startDate = getStartDateOfWeek(parseInt(weekNumber));
+            var endDate = new Date(startDate);
+            endDate.setDate(endDate.getDate() + 6); // Add 6 days to get the end date of the week
+
+            var weekDisplay = "Week " + weekNumber + ": " + formatDate(startDate) + " - " + formatDate(endDate);
+
+            // Construct the HTML for the week summary with separate classes
+            weekDiv.innerHTML = "<h3 class='week-number'>" + weekDisplay + "</h3>" +
+                "<p class='total-income'>Total Income: <span class='weeks-total-income'>" + weekData.income + "</span></p>" +
+                "<p class='total-petrol'>Total Petrol: <span class='weeks-total-petrol'>" + weekData.petrol + "</span></p>" +
+                "<p class='net-difference'>Net Difference: <span class='weeks-total-difference'>" + weekData.difference + "</span></p>";
+
+            // Append the week summary to the weeklyTransactionsCnt div
+            weeklyTransactionsCnt.appendChild(weekDiv);
+        }
+    }
+}
+
+function displayWeeklyTransactions() {
+    var dataTableBody = document.querySelector("#dataTable tbody");
+    var weeklyTransactionsCnt = document.querySelector(".weekly-transactions-cnt");
+
+    // Clear previous content
+    weeklyTransactionsCnt.innerHTML = "";
+
+    // Initialize an object to store weekly totals
+    var weeklyTotals = {};
+
+    // Iterate through the rows in the table
+    var rows = dataTableBody.querySelectorAll("tr");
+    rows.forEach(function (row) {
+        var date = new Date(row.dataset.date);
+        var weekNumber = getWeekNumber(date);
+
+        // Initialize weekly totals if not already present
+        if (!weeklyTotals[weekNumber]) {
+            weeklyTotals[weekNumber] = {
+                income: 0,
+                petrol: 0,
+                difference: 0
+            };
+        }
+
+        // Update weekly totals
+        var income = parseInt(row.querySelector("td:nth-child(7)").textContent);
+        var petrol = parseInt(row.querySelector("td:nth-child(6)").textContent);
+        var difference = parseInt(row.querySelector("td:nth-child(8)").textContent);
+
+        weeklyTotals[weekNumber].income += income;
+        weeklyTotals[weekNumber].petrol += petrol;
+        weeklyTotals[weekNumber].difference += difference;
+    });
+
+    // Render weekly transactions
+    for (var weekNumber in weeklyTotals) {
+        if (weeklyTotals.hasOwnProperty(weekNumber)) {
+            var weekData = weeklyTotals[weekNumber];
+            var weekDiv = document.createElement("div");
+            weekDiv.classList.add("week-summary");
+
+            // Format the week display
+            var startDate = getStartDateOfWeek(parseInt(weekNumber));
+            var endDate = new Date(startDate);
+            endDate.setDate(endDate.getDate() + 6); // Add 6 days to get the end date of the week
+
+            var weekNumberSpan = document.createElement("span");
+            weekNumberSpan.classList.add("week-number");
+            weekNumberSpan.textContent = "Week " + weekNumber + " ";
+
+            var dateRangeSpan = document.createElement("span");
+            dateRangeSpan.classList.add("week-duration");
+            dateRangeSpan.textContent = formatDate(startDate) + " - " + formatDate(endDate);
+
+            // Construct the HTML for the week summary with separate spans
+            weekDiv.appendChild(weekNumberSpan);
+            weekDiv.appendChild(dateRangeSpan);
+            weekDiv.innerHTML += "<p class='total-income'>Total Income: <span class='weeks-total-income'>" + weekData.income + "</span></p>" +
+                "<p class='total-petrol'>Total Petrol: <span class='weeks-total-petrol'>" + weekData.petrol + "</span></p>" +
+                "<p class='net-difference'>Net Difference: <span class='weeks-total-difference'>" + weekData.difference + "</span></p>";
+
+            // Append the week summary to the weeklyTransactionsCnt div
+            weeklyTransactionsCnt.appendChild(weekDiv);
+        }
+    }
+}
