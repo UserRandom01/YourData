@@ -596,6 +596,12 @@ input[type='date'] {
         transform: translate(0, 0) !important;
         border-radius: 0;
         padding: 4px;
+        backdrop-filter: blur(0);
+    }
+
+    .weekly-transactions-cnt {
+        background: linear-gradient(var(--blackpointfiveopacity), var(--whitepointfiveopacity), var(--whitepointfiveopacity), var(--whitepointfiveopacity), var(--blackpointfiveopacity));
+        background: var(--cplt1);
     }
 
     .todays-income {
