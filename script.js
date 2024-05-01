@@ -199,12 +199,16 @@ function closeNavBody() {
 // Function to change color scheme to white and store it in local storage
 function changeWhite() {
     var root = document.documentElement;
+    var metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
     // Update the values of CSS variables for white color scheme
     root.style.setProperty('--cplt1', '#fff');
     root.style.setProperty('--white', '#121212');
     root.style.setProperty('--blackpointfiveopacity', 'rgba(255, 255, 255, 0.1)');
     root.style.setProperty('--whitepointfiveopacity', 'rgba(0, 0, 0, 0.1)');
+
+    // Update the content attribute to "red"
+    metaThemeColor.setAttribute('content', '#fff');
 
     // Store the color scheme in local storage
     localStorage.setItem('colorScheme', 'white');
@@ -214,11 +218,17 @@ function changeWhite() {
 function changeBlack() {
     var root = document.documentElement;
 
+    var metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
     // Update the values of CSS variables for black color scheme
     root.style.setProperty('--cplt1', '#121212');
     root.style.setProperty('--white', '#fff');
     root.style.setProperty('--blackpointfiveopacity', 'rgba(0, 0, 0, 0.05)');
     root.style.setProperty('--whitepointfiveopacity', 'rgba(255, 255, 255, 0.05)');
+
+
+    // Update the content attribute to "red"
+    metaThemeColor.setAttribute('content', '#121212');
 
     // Store the color scheme in local storage
     localStorage.setItem('colorScheme', 'black');
@@ -227,10 +237,16 @@ function changeBlack() {
 // Function to change color scheme to AF Blue and store it in local storage
 function changeAFBlue() {
     var root = document.documentElement;
+    var metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
 
     // Update the values of CSS variables for AF Blue color scheme
     root.style.setProperty('--cplt1', '#283845');
     root.style.setProperty('--white', 'white');
+
+
+    // Update the content attribute to "red"
+    metaThemeColor.setAttribute('content', '#283845');
 
     // Store the color scheme in local storage
     localStorage.setItem('colorScheme', 'afBlue');
