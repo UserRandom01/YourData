@@ -69,9 +69,13 @@
                             </svg>
                         </div>
                         <div class="about-me">
-                            <div class="abtme-title">
-                                Mohammad
+                            <div class="abtme-title" onclick="playAudio()">
+                                <span id="audio-time"></span>
+                                Sameer
                             </div>
+                            <audio id="myAudio" ontimeupdate="updateTime()">
+                                <source src="Cheques.mp3">
+                            </audio>
                             <div class="abtme-occtitle">
                                 Web Dev
                             </div>
@@ -137,10 +141,10 @@
                         <input type="date" id="date" required><br>
 
                         <label for="routeName">Route Name:</label>
-                        <input type="text" id="routeName" placeholder="Route Name" required><br>
+                        <input type="text" id="routeName" placeholder="Route name" required><br>
 
                         <label for="totalAssigned">Total Assigned:</label>
-                        <input type="number" id="totalAssigned" placeholder="Total Assigned" required><br>
+                        <input type="number" id="totalAssigned" required><br>
 
                         <label for="totalDelivered">Total Delivered:</label>
                         <input type="number" id="totalDelivered" required><br>
