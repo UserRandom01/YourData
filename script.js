@@ -432,19 +432,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // graphs script
-
 document.addEventListener("DOMContentLoaded", function () {
     // Extract data from the table
     var tableBody = document.querySelector("#dataTable tbody");
     var rows = tableBody.querySelectorAll("tr");
-    var dates = [];
-    var netEarnings = [];
+    var data = [];
 
     rows.forEach(function (row) {
         var date = row.querySelector("td:nth-child(1)").textContent;
         var earnings = parseInt(row.querySelector("td:nth-child(8)").textContent);
-        dates.push(date);
-        netEarnings.push(earnings);
+        data.push({ date: date, earnings: earnings });
+    });
+
+    // Sort data by date in ascending order
+    data.sort(function (a, b) {
+        return new Date(a.date) - new Date(b.date);
+    });
+
+    // Extract sorted dates and earnings
+    var dates = data.map(function (item) {
+        return item.date;
+    });
+    var netEarnings = data.map(function (item) {
+        return item.earnings;
     });
 
     // Create the chart
@@ -473,34 +483,100 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function openGraphs() {
-    document.getElementById('earningsChartContainer').style.transform = 'translate(0)';
-    document.getElementById('earningsChartContainer').style.visibility = 'visible';
-    document.getElementById('earningsChartContainer').style.width = '100%';
-    document.getElementById('earningsChartContainer').style.height = '350px';
-    document.getElementById('earningsChartContainer').style.borderRadius = '5px';
-    document.getElementById('earningsChartContainer').style.fontSize = '1em';
-    document.getElementById('earningsChartContainer').style.left = '-60vw';
-    document.getElementById('earningsChartContainer').style.top = '-320px';
 
+// function openGraphs() {
+//     document.getElementById('earningsChartContainer').style.transform = 'translate(0)';
+//     document.getElementById('earningsChartContainer').style.visibility = 'visible';
+//     document.getElementById('earningsChartContainer').style.width = '100%';
+//     document.getElementById('earningsChartContainer').style.height = '350px';
+//     document.getElementById('earningsChartContainer').style.borderRadius = '5px';
+//     document.getElementById('earningsChartContainer').style.fontSize = '1em';
+//     document.getElementById('earningsChartContainer').style.left = '-60vw';
+//     document.getElementById('earningsChartContainer').style.top = '-320px';
+
+//     document.getElementById('nav-bar-graph-data-cnt').style.left = '0';
+//     document.getElementById('nav-bar-graph-data-cnt').style.right = 'unset';
+//     document.getElementById('nav-bar-graph-data-cnt').style.width = '100vw';
+//     document.getElementById('nav-bar-graph-data-cnt').style.padding = '12px';
+// }
+// function closeGraphs() {
+//     document.getElementById('earningsChartContainer').style.visibility = 'hidden';
+//     document.getElementById('earningsChartContainer').style.width = '0';
+//     document.getElementById('earningsChartContainer').style.height = '0';
+//     document.getElementById('earningsChartContainer').style.borderRadius = '50%';
+//     document.getElementById('earningsChartContainer').style.fontSize = '0';
+//     document.getElementById('earningsChartContainer').style.transform = 'translate(100px,100px)';
+//     document.getElementById('earningsChartContainer').style.left = '-120px';
+//     document.getElementById('earningsChartContainer').style.top = '-120px';
+
+//     document.getElementById('nav-bar-graph-data-cnt').style.left = 'unset';
+//     document.getElementById('nav-bar-graph-data-cnt').style.right = '24px';
+//     document.getElementById('nav-bar-graph-data-cnt').style.width = 'unset';
+//     document.getElementById('nav-bar-graph-data-cnt').style.padding = 'unset';
+
+// }
+
+function openGraphs() {
+    document.getElementById('nav-bar-graph-data-cnt').style.position = 'absolute';
+    document.getElementById('nav-bar-graph-data-cnt').style.top = '0';
     document.getElementById('nav-bar-graph-data-cnt').style.left = '0';
-    document.getElementById('nav-bar-graph-data-cnt').style.right = 'unset';
+    document.getElementById('nav-bar-graph-data-cnt').style.bottom = '0';
+    document.getElementById('nav-bar-graph-data-cnt').style.right = '0';
     document.getElementById('nav-bar-graph-data-cnt').style.width = '100vw';
+    document.getElementById('nav-bar-graph-data-cnt').style.height = '100vh';
     document.getElementById('nav-bar-graph-data-cnt').style.padding = '12px';
+    document.getElementById('nav-bar-graph-data-cnt').style.background = 'var(--light-grad-pink-blue, radial-gradient(ellipse at 40% 0%, #bf398910 0, transparent 75%), radial-gradient(ellipse at 60% 0%, #096bde10 0, transparent 75%))';
+    document.getElementById('nav-bar-graph-data-cnt').style.color = 'white';
+
+    document.querySelector('.dwgraph-txt').style.background = 'unset';
+    document.querySelector('.dwgraph-txt').style.fontSize = '1.25em';
+    document.querySelector('.dwgraph-txt').style.position = 'absolute';
+    document.querySelector('.dwgraph-txt').style.zIndex = '10';
+    document.querySelector('.dwgraph-txt').style.margin = '4px';
+    document.querySelector('.dwgraph-txt').style.left = '0';
+    document.querySelector('.dwgraph-txt').style.top = '0';
+
+    document.getElementById('earningsChartContainer').style.position = 'relative';
+    document.getElementById('earningsChartContainer').style.top = '0';
+    document.getElementById('earningsChartContainer').style.left = '0';
+    document.getElementById('earningsChartContainer').style.width = '100%';
+    document.getElementById('earningsChartContainer').style.height = '100%';
+    document.getElementById('earningsChartContainer').style.visibility = 'visible';
+    document.getElementById('earningsChartContainer').style.transform = 'translate(0,0)';
+    document.getElementById('earningsChartContainer').style.fontSize = '1em';
+    document.getElementById('earningsChartContainer').style.background = 'unset';
+
+
 }
 function closeGraphs() {
-    document.getElementById('earningsChartContainer').style.visibility = 'hidden';
+    document.getElementById('nav-bar-graph-data-cnt').style.position = 'fixed';
+    document.getElementById('nav-bar-graph-data-cnt').style.top = 'unset';
+    document.getElementById('nav-bar-graph-data-cnt').style.left = 'unset';
+    document.getElementById('nav-bar-graph-data-cnt').style.bottom = '24px';
+    document.getElementById('nav-bar-graph-data-cnt').style.right = '24px';
+    document.getElementById('nav-bar-graph-data-cnt').style.width = 'auto';
+    document.getElementById('nav-bar-graph-data-cnt').style.height = 'auto';
+    document.getElementById('nav-bar-graph-data-cnt').style.padding = '0';
+    document.getElementById('nav-bar-graph-data-cnt').style.transform = 'translate(0,0)';
+    document.getElementById('nav-bar-graph-data-cnt').style.background = '';
+    document.getElementById('nav-bar-graph-data-cnt').style.color = '';
+
+    document.querySelector('.dwgraph-txt').style.background = '';
+    document.querySelector('.dwgraph-txt').style.fontSize = '1em';
+    document.querySelector('.dwgraph-txt').style.position = 'unset';
+    document.querySelector('.dwgraph-txt').style.zIndex = '10';
+    document.querySelector('.dwgraph-txt').style.margin = '12px 0';
+    document.querySelector('.dwgraph-txt').style.left = '0';
+    document.querySelector('.dwgraph-txt').style.top = '0';
+
+    document.getElementById('earningsChartContainer').style.position = 'relative';
+    document.getElementById('earningsChartContainer').style.top = '0';
+    document.getElementById('earningsChartContainer').style.left = '0';
     document.getElementById('earningsChartContainer').style.width = '0';
     document.getElementById('earningsChartContainer').style.height = '0';
-    document.getElementById('earningsChartContainer').style.borderRadius = '50%';
+    document.getElementById('earningsChartContainer').style.visibility = 'hidden';
+    document.getElementById('earningsChartContainer').style.transform = 'translate(0,0)';
     document.getElementById('earningsChartContainer').style.fontSize = '0';
-    document.getElementById('earningsChartContainer').style.transform = 'translate(100px,100px)';
-    document.getElementById('earningsChartContainer').style.left = '-120px';
-    document.getElementById('earningsChartContainer').style.top = '-120px';
-
-    document.getElementById('nav-bar-graph-data-cnt').style.left = 'unset';
-    document.getElementById('nav-bar-graph-data-cnt').style.right = '24px';
-    document.getElementById('nav-bar-graph-data-cnt').style.width = 'unset';
-    document.getElementById('nav-bar-graph-data-cnt').style.padding = 'unset';
 
 }
+
