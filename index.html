@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="styles.css">
 
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -118,6 +121,7 @@
     </header>
     <main>
         <div class="modals">
+
             <!-- inputs Modal -->
             <div id="myModal" class="inputs-modal">
                 <div class="modal-content">
@@ -151,6 +155,7 @@
                     </form>
                 </div>
             </div>
+
             <!-- Delete Confirmation Modal -->
             <div id="deleteModal" class="delete-modal">
                 <div class="delete-modal-content">
@@ -162,6 +167,20 @@
                     </div>
                 </div>
             </div>
+
+            <!-- graphs content -->
+            <div class="nav-bar-graph-data-cnt" id="nav-bar-graph-data-cnt">
+                <div class="dwgraph-txt" onclick="openGraphs()">
+                    Data Graph
+                </div>
+                <div id="earningsChartContainer">
+                    <div class="closegraph" onclick="closeGraphs()">
+                        <span>Close</span>
+                    </div>
+                    <canvas id="earningsChart"></canvas>
+                </div>
+            </div>
+
         </div>
         <section class="sec-one">
             <div class="add-btn">
@@ -188,8 +207,8 @@
             </div>
         </section>
     </main>
-
     <script src="script.js"></script>
+
 </body>
 
 </html>
