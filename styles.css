@@ -635,6 +635,8 @@ input[type='date'] {
     flex-direction: column;
     padding: 0;
     z-index: 15;
+    backdrop-filter: brightness(10%) blur(12px);
+
 }
 
 .dwgraph-txt {
@@ -664,9 +666,10 @@ input[type='date'] {
     width: 0;
     padding: 0;
     margin: 0;
-    transition: all .3s ease;
+    transition: all 0.2s ease;
     border-radius: 12px !important;
     overflow: auto;
+    border: 0;
 }
 
 
