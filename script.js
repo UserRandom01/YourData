@@ -188,7 +188,7 @@ function closeNavBody() {
     document.getElementById('nav-bar-cnt').style.transform = 'translate(300px)'
 
     document.getElementById('weekly-transactions-body').style.visibility = 'hidden'
-    document.getElementById('weekly-transactions-body').style.transform = 'translate(30%, -40%)'
+    document.getElementById('weekly-transactions-body').style.transform = 'translate(200%, -40%)'
 }
 
 
@@ -580,3 +580,28 @@ function closeGraphs() {
 
 }
 
+
+
+
+function playAudio() {
+    var audio = document.getElementById('myAudio');
+    var button = document.getElementById('toggle-sound-btn');
+
+    if (audio.paused) {
+        audio.play();
+        button.textContent = 'Pause Sound';
+    } else {
+        audio.pause();
+        button.textContent = 'Play Sound';
+    }
+}
+
+function updateTime() {
+    var audio = document.getElementById('myAudio');
+    var timeDisplay = document.getElementById('audio-time');
+    var currentTime = audio.currentTime;
+    var minutes = Math.floor(currentTime / 60);
+    var seconds = Math.floor(currentTime % 60);
+    var formattedTime = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    timeDisplay.textContent = formattedTime;
+}
