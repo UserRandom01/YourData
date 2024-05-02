@@ -420,3 +420,87 @@ function formatDate(date) {
 document.addEventListener("DOMContentLoaded", function () {
     displayWeeklyTransactions();
 });
+
+
+
+
+
+
+
+
+
+
+
+// graphs script
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Extract data from the table
+    var tableBody = document.querySelector("#dataTable tbody");
+    var rows = tableBody.querySelectorAll("tr");
+    var dates = [];
+    var netEarnings = [];
+
+    rows.forEach(function (row) {
+        var date = row.querySelector("td:nth-child(1)").textContent;
+        var earnings = parseInt(row.querySelector("td:nth-child(8)").textContent);
+        dates.push(date);
+        netEarnings.push(earnings);
+    });
+
+    // Create the chart
+    var ctx = document.getElementById('earningsChart').getContext('2d');
+    var earningsChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Net Earnings',
+                data: netEarnings,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+});
+
+function openGraphs() {
+    document.getElementById('earningsChartContainer').style.transform = 'translate(0)';
+    document.getElementById('earningsChartContainer').style.visibility = 'visible';
+    document.getElementById('earningsChartContainer').style.width = '100%';
+    document.getElementById('earningsChartContainer').style.height = '350px';
+    document.getElementById('earningsChartContainer').style.borderRadius = '5px';
+    document.getElementById('earningsChartContainer').style.fontSize = '1em';
+    document.getElementById('earningsChartContainer').style.left = '-60vw';
+    document.getElementById('earningsChartContainer').style.top = '-320px';
+
+    document.getElementById('nav-bar-graph-data-cnt').style.left = '0';
+    document.getElementById('nav-bar-graph-data-cnt').style.right = 'unset';
+    document.getElementById('nav-bar-graph-data-cnt').style.width = '100vw';
+    document.getElementById('nav-bar-graph-data-cnt').style.padding = '12px';
+}
+function closeGraphs() {
+    document.getElementById('earningsChartContainer').style.visibility = 'hidden';
+    document.getElementById('earningsChartContainer').style.width = '0';
+    document.getElementById('earningsChartContainer').style.height = '0';
+    document.getElementById('earningsChartContainer').style.borderRadius = '50%';
+    document.getElementById('earningsChartContainer').style.fontSize = '0';
+    document.getElementById('earningsChartContainer').style.transform = 'translate(100px,100px)';
+    document.getElementById('earningsChartContainer').style.left = '-120px';
+    document.getElementById('earningsChartContainer').style.top = '-120px';
+
+    document.getElementById('nav-bar-graph-data-cnt').style.left = 'unset';
+    document.getElementById('nav-bar-graph-data-cnt').style.right = '24px';
+    document.getElementById('nav-bar-graph-data-cnt').style.width = 'unset';
+    document.getElementById('nav-bar-graph-data-cnt').style.padding = 'unset';
+
+}
