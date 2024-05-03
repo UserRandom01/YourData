@@ -723,7 +723,7 @@ footer {
 
 .getintouch-cnt {
     height: 400px;
-    width: 280px;
+    width: 0;
     height: 0;
     position: absolute;
     top: -410px;
