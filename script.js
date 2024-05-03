@@ -605,3 +605,30 @@ function updateTime() {
     var formattedTime = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
     timeDisplay.textContent = formattedTime;
 }
+
+function openContactForm() {
+    var getInTouchCnt = document.getElementById('getintouch-cnt');
+
+    getInTouchCnt.style.visibility = 'visible';
+    getInTouchCnt.style.height = '380px';
+    getInTouchCnt.style.width = '280px';
+    getInTouchCnt.style.maxWidth = '80%';
+    getInTouchCnt.style.transform = 'translate(0,0) ';
+    getInTouchCnt.style.borderRadius = '12px';
+    getInTouchCnt.style.fontSize = '';
+
+
+}
+
+function closeContactForm() {
+    var getInTouchCnt = document.getElementById('getintouch-cnt');
+
+    getInTouchCnt.style.visibility = 'hidden';
+    getInTouchCnt.style.height = '0';
+    getInTouchCnt.style.width = '0';
+    getInTouchCnt.style.fontSize = '0';
+
+    getInTouchCnt.style.maxWidth = '80%';
+    getInTouchCnt.style.transform = 'translate(0,400px) ';
+    getInTouchCnt.style.borderRadius = '400px';
+}
