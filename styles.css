@@ -313,11 +313,33 @@ p {
 .abtme-title {
     font-size: 1.5em;
     font-weight: 500;
+    position: relative;
+}
+
+#UserName-Title-Id {
+    display: block;
+    width: 220px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.about-me svg {
+    padding: 6px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1001;
+    backdrop-filter: blur(20px);
 }
 
 .abtme-occtitle {
     font-size: .9em;
     color: var(--gray);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .navs-cnt {
@@ -581,7 +603,6 @@ input[type='date'] {
 
 
 .nav-bar-graph-data-cnt {
-    background: darkblue;
     position: fixed;
     right: 24px;
     bottom: 24px;
@@ -723,7 +744,7 @@ footer {
 
 .getintouch-cnt {
     height: 400px;
-    width: 0;
+    width: 280px;
     height: 0;
     position: absolute;
     top: -410px;
@@ -799,6 +820,59 @@ footer {
 .foott2 a {
     color: red;
     margin-left: 4px;
+}
+
+.name-occ-input-modals-cnt {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    backdrop-filter: brightness(50%) blur(8px);
+    font-family: var(--ffpoppins);
+    justify-content: center;
+    align-items: center;
+}
+
+#nameOccForm {
+    background: var(--cplt1);
+    padding: 20px;
+    width: 340px;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+.name-occ-input-modals-cnt input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    background: transparent;
+    border: 1px solid var(--litgray);
+    padding: 6px;
+    border-radius: 4px;
+    color: var(--white);
+    font-family: var(--ffpoppins);
+    margin-bottom: 12px;
+    font-size: 1em;
+}
+
+.name-occ-input-modals-cnt button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: var(--ffpoppins);
+    width: 40%;
+    border-radius: 6px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -886,7 +960,6 @@ footer {
         display: flex;
         align-items: center;
         margin-left: 4px;
-        /* background: cadetblue; */
         padding: 12px;
     }
 
@@ -896,7 +969,6 @@ footer {
         background: var(--whitepointfiveopacity);
         font-size: .65em;
         white-space: nowrap;
-        /* background: red; */
     }
 
     .getintouch-cnt {
@@ -904,8 +976,8 @@ footer {
         width: 280px;
         height: 0;
         position: absolute;
-        top: -440px;
-        left: 20px;
+        top: -410px;
+        left: 12px;
         border: 1px solid var(--gray);
         border-radius: 12px;
         backdrop-filter: blur(10px);
@@ -924,12 +996,25 @@ footer {
         padding: 2px 4px;
         font-size: .65em;
         margin-right: 4px;
-        /* background: darkblue; */
     }
 
     .foott2 a {
         color: red;
         margin-left: 4px;
 
+    }
+
+    #UserName-Title-Id {
+        width: 170px !important;
+    }
+
+    #nameandbiochanger-id {
+        padding: 8px;
+        width: 100%;
+        left: 0;
+        width: 170px;
+        height: 100%;
+        backdrop-filter: blur(0);
+        fill: transparent;
     }
 }
