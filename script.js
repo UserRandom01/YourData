@@ -632,3 +632,21 @@ function closeContactForm() {
     getInTouchCnt.style.transform = 'translate(0,400px) ';
     getInTouchCnt.style.borderRadius = '400px';
 }
+
+
+
+
+// Check if the browser supports notifications
+if (!("Notification" in window)) {
+    console.log("This browser does not support desktop notification");
+} else {
+    // Request permission from the user
+    Notification.requestPermission().then(function (permission) {
+        // If permission is granted, create a notification
+        if (permission === "granted") {
+            var notification = new Notification("Hello, User!");
+        } else {
+            console.log("Notification permission denied");
+        }
+    });
+}
