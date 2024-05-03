@@ -656,6 +656,9 @@ svgElement.addEventListener('click', function () {
     modalDiv.style.display = 'flex';
 });
 
+function closeNameBioModal() {
+    document.getElementById('name-occ-input-modals-cnt').style.display = 'none'
+}
 
 
 
