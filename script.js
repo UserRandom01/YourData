@@ -583,18 +583,18 @@ function closeGraphs() {
 
 
 
-function playAudio() {
-    var audio = document.getElementById('myAudio');
-    var button = document.getElementById('toggle-sound-btn');
+// function playAudio() {
+//     var audio = document.getElementById('myAudio');
+//     var button = document.getElementById('toggle-sound-btn');
 
-    if (audio.paused) {
-        audio.play();
-        button.textContent = 'Pause Sound';
-    } else {
-        audio.pause();
-        button.textContent = 'Play Sound';
-    }
-}
+//     if (audio.paused) {
+//         audio.play();
+//         button.textContent = 'Pause Sound';
+//     } else {
+//         audio.pause();
+//         button.textContent = 'Play Sound';
+//     }
+// }
 
 function updateTime() {
     var audio = document.getElementById('myAudio');
@@ -625,28 +625,62 @@ function closeContactForm() {
 
     getInTouchCnt.style.visibility = 'hidden';
     getInTouchCnt.style.height = '0';
-    getInTouchCnt.style.width = '0';
+    getInTouchCnt.style.width = '280px';
     getInTouchCnt.style.fontSize = '0';
 
     getInTouchCnt.style.maxWidth = '80%';
     getInTouchCnt.style.transform = 'translate(0,400px) ';
-    getInTouchCnt.style.borderRadius = '400px';
+    // getInTouchCnt.style.borderRadius = '50%';
 }
 
 
 
 
-// Check if the browser supports notifications
-if (!("Notification" in window)) {
-    console.log("This browser does not support desktop notification");
-} else {
-    // Request permission from the user
-    Notification.requestPermission().then(function (permission) {
-        // If permission is granted, create a notification
-        if (permission === "granted") {
-            var notification = new Notification("Hello, User!");
-        } else {
-            console.log("Notification permission denied");
-        }
-    });
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+const svgElement = document.getElementById('nameandbiochanger-id');
+const modalDiv = document.getElementById('name-occ-input-modals-cnt');
+
+svgElement.addEventListener('click', function () {
+    modalDiv.style.display = 'flex';
+});
+
+
+
+
+
+const userNameInput = document.getElementById('userNameInput');
+const userOccupationInput = document.getElementById('userOccupationInput');
+const userNameTitle = document.getElementById('UserName-Title-Id');
+const userOccupationTitle = document.getElementById('abtme-occ-title');
+
+// Load values from localStorage if available, or use existing random text
+userNameInput.value = localStorage.getItem('userName') || userNameTitle.textContent;
+userOccupationInput.value = localStorage.getItem('userOccupation') || userOccupationTitle.textContent;
+userNameTitle.textContent = userNameInput.value;
+userOccupationTitle.textContent = userOccupationInput.value;
+
+// Update titles, store values, and limit input length on input change
+userNameInput.addEventListener('input', function () {
+    let value = userNameInput.value.slice(0, 16); // Trim input to 16 characters
+    userNameTitle.textContent = value;
+    localStorage.setItem('userName', value);
+});
+
+userOccupationInput.addEventListener('input', function () {
+    let value = userOccupationInput.value.slice(0, 32); // Trim input to 16 characters
+    userOccupationTitle.textContent = value;
+    localStorage.setItem('userOccupation', value);
+
+});
