@@ -120,9 +120,10 @@ header {
 .weekly-transactions-body {
     width: 400px;
     height: 80vh;
+    max-height: 600px !important;
     position: absolute;
     top: 50%;
-    left: 50%;
+    right: 360px;
     transform: translate(30%, -40%);
     border-radius: 46px;
     padding: 26px;
@@ -130,6 +131,49 @@ header {
     transition: all .3s ease;
     display: flex;
     justify-content: right;
+    max-height: 800px !important;
+}
+
+.close-weekly-transactions-body {
+    height: 45px;
+    width: 30px;
+    position: absolute;
+    left: 0;
+    top: 46%;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.close-weekly-transactions-body div:nth-child(1) {
+    width: 6px;
+    height: 50%;
+    background: var(--cplt1);
+    border-radius: 20px 20px 0 0;
+    transition: transform .3s ease, background .3s ease;
+}
+
+.close-weekly-transactions-body div:nth-child(2) {
+    width: 6px;
+    height: 50%;
+    background: var(--cplt1);
+    border-radius: 0 0 20px 20px;
+    transition: transform .3s ease, background .3s ease;
+}
+
+.close-weekly-transactions-body:hover div:nth-child(1) {
+    transform: rotate(-25deg) translate(0, 3px);
+    border-radius: 20px 20px 20px 0;
+    background: var(--white);
+}
+
+.close-weekly-transactions-body:hover div:nth-child(2) {
+    transform: rotate(25deg) translate(0, -3px);
+    border-radius: 0 20px 20px 20px;
+    background: var(--white);
 }
 
 .weekly-transactions-cnt {
@@ -192,6 +236,8 @@ p {
     backdrop-filter: blur(10px);
     background: linear-gradient(var(--blackpointfiveopacity), var(--whitepointfiveopacity), var(--whitepointfiveopacity), var(--whitepointfiveopacity), var(--blackpointfiveopacity));
     background: var(--cplt1);
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .nav-close-icon {
@@ -837,6 +883,13 @@ footer {
     align-items: center;
 }
 
+.name-occ-input-modals-cnt-close-cnt {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 8px;
+}
+
+
 #nameOccForm {
     background: var(--cplt1);
     padding: 20px;
@@ -891,6 +944,27 @@ footer {
 
 
 
+@media screen and (min-width:551px) and (max-width:799px) {
+    .weekly-transactions-body {
+        width: 400px;
+        height: 80vh;
+        max-height: 600px !important;
+        position: absolute;
+        top: 50%;
+        left: unset;
+        right: 200px !important;
+        transform: translate(30%, -40%);
+        border-radius: 46px;
+        padding: 26px;
+        visibility: hidden;
+        transition: all .3s ease;
+        display: flex;
+        justify-content: right;
+        max-height: 800px !important;
+        z-index: 10;
+    }
+}
+
 @media screen and (max-width:550px) {
     .modal-content {
         background: var(--whitepointfiveopacity);
@@ -900,6 +974,24 @@ footer {
 
     .close-nav-body {
         width: calc(100% - 200px);
+    }
+
+    .close-weekly-transactions-body {
+        height: 45px;
+        width: 30px;
+        position: absolute;
+        left: -20px;
+        top: 46%;
+        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .close-weekly-transactions-body div {
+        background: var(--white) !important;
     }
 
     .nav-bar-cnt {
