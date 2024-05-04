@@ -299,7 +299,10 @@ function weeklyContainerVisibile() {
     document.getElementById('weekly-transactions-body').style.visibility = 'visible'
     document.getElementById('weekly-transactions-body').style.transform = 'translate(15%, -40%)'
 }
-
+function weeklyContainerhidden() {
+    document.getElementById('weekly-transactions-body').style.visibility = 'hidden'
+    document.getElementById('weekly-transactions-body').style.transform = 'translate(200%, -40%)'
+}
 
 
 
@@ -687,3 +690,37 @@ userOccupationInput.addEventListener('input', function () {
     localStorage.setItem('userOccupation', value);
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
