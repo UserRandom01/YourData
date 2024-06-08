@@ -240,6 +240,10 @@ p {
     overflow-y: auto;
 }
 
+.nav-bar-cnt::-webkit-scrollbar {
+    display: none;
+}
+
 .nav-close-icon {
     padding: 4px;
     cursor: pointer;
@@ -403,6 +407,29 @@ p {
 .navs span {
     display: block;
     padding: 6px;
+}
+
+.pdf-hndlng-cnt {
+    padding: 6px;
+    display: flex;
+    justify-content: right;
+}
+
+.pdf-dwnld-btn {
+    background: var(--cplt2);
+    border: 0;
+    padding: 8px;
+    margin: 0 6px;
+    font-family: unset;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.pdf-dwnld-btn:active {
+    background: var(--cplt2);
+    filter: brightness(60%);
 }
 
 #audio-time {
