@@ -705,6 +705,33 @@ userOccupationInput.addEventListener('input', function () {
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const downloadPdfButton = document.getElementById('downloadPdfButton');
+    const uploadPdfButton = document.getElementById('uploadPdfButton');
+
+    // Generate PDF
+    downloadPdfButton.addEventListener('click', function () {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.text("YourData", 20, 10);
+
+        // Use autoTable plugin to convert HTML table to PDF
+        doc.autoTable({ html: '#dataTable' });
+
+        doc.save('YourData.pdf');
+    });
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
