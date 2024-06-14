@@ -705,20 +705,210 @@ userOccupationInput.addEventListener('input', function () {
 
 
 
+// document.addEventListener('DOMContentLoaded', function () {
+//     const downloadPdfButton = document.getElementById('downloadPdfButton');
+
+//     // Generate PDF
+//     downloadPdfButton.addEventListener('click', function () {
+//         const { jsPDF } = window.jspdf;
+//         const doc = new jsPDF();
+
+//         // Get the text content from the elements
+//         const userNameTitleId = document.getElementById('UserName-Title-Id').textContent;
+//         const abtMeOccTitle = document.getElementById('abtme-occ-title').textContent;
+
+//         // Calculate the right margin (assuming page width is 210 mm)
+//         const pageWidth = doc.internal.pageSize.getWidth();
+//         const rightMargin = 20;
+
+//         // Set custom font and color
+//         doc.setFont("helvetica", "bold");
+//         doc.setTextColor(40, 40, 40);
+
+//         // Add the user name title id text to the right side of the PDF
+//         const textWidth = doc.getTextDimensions(userNameTitleId).w;
+//         doc.text(userNameTitleId, pageWidth - textWidth - rightMargin, 10);
+
+//         // Add the about me occupation title text below the first text in a smaller font size
+//         doc.setFontSize(10);
+//         doc.setTextColor(100, 100, 100);
+//         const smallTextWidth = doc.getTextDimensions(abtMeOccTitle).w;
+//         doc.text(abtMeOccTitle, pageWidth - smallTextWidth - rightMargin, 20);
+
+//         // Reset font size and color for title
+//         doc.setFontSize(16);
+//         doc.setTextColor(40, 40, 40);
+
+//         // Add a title
+//         doc.text("YourData", 20, 30);
+
+//         // Use autoTable plugin to convert HTML table to PDF with customized styles
+//         doc.autoTable({
+//             html: '#dataTable',
+//             startY: 40,
+//             headStyles: {
+//                 fillColor: [64, 162, 216], // blue
+//                 textColor: [255, 255, 255], // White
+//                 fontStyle: 'bold',
+//             },
+//             bodyStyles: {
+//                 fillColor: [245, 245, 245], // Light grey
+//             },
+//             alternateRowStyles: {
+//                 fillColor: [255, 255, 255], // White
+//             },
+//             styles: {
+//                 font: "helvetica",
+//                 fontSize: 10,
+//                 textColor: [0, 0, 0], // Black
+//             },
+//             margin: { top: 40 },
+//         });
+
+//         // Save the PDF
+//         doc.save('YourData.pdf');
+//     });
+// });
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const downloadPdfButton = document.getElementById('downloadPdfButton');
-    const uploadPdfButton = document.getElementById('uploadPdfButton');
 
     // Generate PDF
     downloadPdfButton.addEventListener('click', function () {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
-        doc.text("YourData", 20, 10);
+        // Get the text content from the elements
+        const userNameTitleId = document.getElementById('UserName-Title-Id').textContent;
+        const abtMeOccTitle = document.getElementById('abtme-occ-title').textContent;
 
-        // Use autoTable plugin to convert HTML table to PDF
-        doc.autoTable({ html: '#dataTable' });
+        // Calculate the right margin (assuming page width is 210 mm)
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const rightMargin = 20;
 
+        // Set custom font and color
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(40, 40, 40);
+
+        // Add the user name title id text to the right side of the PDF
+        const textWidth = doc.getTextDimensions(userNameTitleId).w;
+        doc.text(userNameTitleId, pageWidth - textWidth - rightMargin, 10);
+
+        // Add the about me occupation title text below the first text in a smaller font size
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        const smallTextWidth = doc.getTextDimensions(abtMeOccTitle).w;
+        doc.text(abtMeOccTitle, pageWidth - smallTextWidth - rightMargin, 20);
+
+        // Reset font size and color for title
+        doc.setFontSize(16);
+        doc.setTextColor(40, 40, 40);
+
+        // Add a title
+        doc.text("YourData", 20, 30);
+
+        // Use autoTable plugin to convert HTML table to PDF with customized styles
+        doc.autoTable({
+            html: '#dataTable',
+            startY: 40,
+            headStyles: {
+                fillColor: [64, 162, 216], // blue
+                textColor: [255, 255, 255], // White
+                fontStyle: 'bold',
+            },
+            bodyStyles: {
+                fillColor: [245, 245, 245], // Light grey
+            },
+            alternateRowStyles: {
+                fillColor: [255, 255, 255], // White
+            },
+            styles: {
+                font: "helvetica",
+                fontSize: 10,
+                textColor: [0, 0, 0], // Black
+            },
+            margin: { top: 40 },
+        });
+
+        // Add the .navs content below the table
+        const navsContent = document.querySelector('.navs').textContent;
+        doc.text(navsContent, 20, doc.autoTable.previous.finalY + 10);
+
+        // Save the PDF
+        doc.save('YourData.pdf');
+    });
+});
+
+
+
+// download button inside popup modal
+document.addEventListener('DOMContentLoaded', function () {
+    const downloadPdfButton = document.getElementById('downloadPdfButton-modalbtn');
+
+    // Generate PDF
+    downloadPdfButton.addEventListener('click', function () {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Get the text content from the elements
+        const userNameTitleId = document.getElementById('UserName-Title-Id').textContent;
+        const abtMeOccTitle = document.getElementById('abtme-occ-title').textContent;
+
+        // Calculate the right margin (assuming page width is 210 mm)
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const rightMargin = 20;
+
+        // Set custom font and color
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(40, 40, 40);
+
+        // Add the user name title id text to the right side of the PDF
+        const textWidth = doc.getTextDimensions(userNameTitleId).w;
+        doc.text(userNameTitleId, pageWidth - textWidth - rightMargin, 10);
+
+        // Add the about me occupation title text below the first text in a smaller font size
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        const smallTextWidth = doc.getTextDimensions(abtMeOccTitle).w;
+        doc.text(abtMeOccTitle, pageWidth - smallTextWidth - rightMargin, 20);
+
+        // Reset font size and color for title
+        doc.setFontSize(16);
+        doc.setTextColor(40, 40, 40);
+
+        // Add a title
+        doc.text("YourData", 20, 30);
+
+        // Use autoTable plugin to convert HTML table to PDF with customized styles
+        doc.autoTable({
+            html: '#dataTable',
+            startY: 40,
+            headStyles: {
+                fillColor: [64, 162, 216], // blue
+                textColor: [255, 255, 255], // White
+                fontStyle: 'bold',
+            },
+            bodyStyles: {
+                fillColor: [245, 245, 245], // Light grey
+            },
+            alternateRowStyles: {
+                fillColor: [255, 255, 255], // White
+            },
+            styles: {
+                font: "helvetica",
+                fontSize: 10,
+                textColor: [0, 0, 0], // Black
+            },
+            margin: { top: 40 },
+        });
+
+        // Add the .navs content below the table
+        const navsContent = document.querySelector('.navs').textContent;
+        doc.text(navsContent, 20, doc.autoTable.previous.finalY + 10);
+
+        // Save the PDF
         doc.save('YourData.pdf');
     });
 });
@@ -730,13 +920,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the modal
+    var modal = document.getElementById("downloadDataModal");
+    // Get the download button
+    var downloadButton = document.getElementById("downloadPdfButton-modalbtn");
 
+    // Function to show the modal
+    function showModal() {
+        modal.style.display = "flex";
+    }
 
+    // Function to hide the modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
 
+    // When the user clicks anywhere on the screen, close the modal
+    window.addEventListener("click", function (event) {
+        if (event.target === modal || !modal.contains(event.target)) {
+            closeModal();
+        }
+    });
 
+    // When the user clicks the download button, close the modal
+    downloadButton.addEventListener("click", closeModal);
 
+    // Calculate the time to the next 15 minutes
+    function timeToNextQuarterHour() {
+        var now = new Date();
+        var nextQuarterHour = new Date(now);
+        nextQuarterHour.setMinutes(Math.ceil(now.getMinutes() / 15) * 15, 0, 0);
+        if (nextQuarterHour <= now) {
+            nextQuarterHour.setMinutes(nextQuarterHour.getMinutes() + 15);
+        }
+        return nextQuarterHour - now;
+    }
 
+    // Function to initialize the modal display timing
+    function initializeModalTiming() {
+        setTimeout(function () {
+            showModal();
+            setInterval(showModal, 900000); // 900000 ms = 15 minutes
+        }, timeToNextQuarterHour());
+    }
 
+    // Initialize the modal display timing
+    initializeModalTiming();
+});
 
 
 
