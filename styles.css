@@ -498,18 +498,25 @@ main {
 .datacontainer td {
     padding: 12px;
     white-space: nowrap;
-    animation: table-blur 1s ease;
+}
+
+.datacontainer tbody tr {
+    animation: table-blur 2s ease;
     transition: all .3s ease;
 }
 
 @keyframes table-blur {
     0% {
-        filter: blur(12px);
-        transform: translate(-1000px);
+        filter: opacity(0);
+        transform: translate(-50px);
+    }
+
+    30% {
+        transform: translate(0);
     }
 
     100% {
-        filter: blur(2px);
+        filter: opacity(1);
     }
 }
 
