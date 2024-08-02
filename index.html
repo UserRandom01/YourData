@@ -4,464 +4,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript</title>
+    <title>YourData</title>
 
-    <meta name="theme-color" content="#F7DF1E">
-
-
-    <!-- google fonts code -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <link rel="icon" type="png" href="assets/vecteezy_javascript-logo-png-javascript-icon-transparent-png_27127463.png">
+    <meta name="theme-color" content="#121212">
 
 
 
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="repstyles.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="png" href="favicon.io.png">
+
+
+    <!-- download pdf script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5VX8VT22F4"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-5VX8VT22F4');
+</script>
 
 <body>
 
 
 
-
-
     <header>
-        <div class="header-logo-cnt">
-            <a href="">
-                <img src="assets/vecteezy_javascript-logo-png-javascript-icon-transparent-png_27127463.png"
-                    alt="JavaScript Logo">
-            </a>
-        </div>
-        <div class="header-menu-icon">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                    d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
-            </svg>
-        </div>
-        <div class="header-sidebar-cnt">
-            <!-- side bar here -->
-            <div class="header-main-sidebar">
-                <div class="close-icon-cnt">
+        <div class="header-cnt">
+            <div class="logo-cnt">
+                <a href="">
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z" />
+                        </svg>
+                    </div>
+                    <div class="logo-title">
+                        YourData
+                    </div>
+                </a>
+            </div>
+            <nav>
+                <div class="menu-icon" onclick="openNav()">
                     <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 384 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
-                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
                     </svg>
                 </div>
-                <div class="sideber-userDetails-cnt" id="userDetails">
-                    <div class="userIconCnt">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                            <path
-                                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                        </svg>
-                        <div class="profilePicCnt">
-                            <!-- profile picture will be displayed here  -->
+                <div class="nav-bar" id="nav-bar">
+                    <div class="close-nav-body" onclick="closeNavBody()">
+
+                    </div>
+                    <div class="weekly-transactions-body" id="weekly-transactions-body">
+                        <div class="close-weekly-transactions-body" onclick="weeklyContainerhidden()">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="weekly-transactions-cnt">
+
                         </div>
                     </div>
-                    <div class="userNameandBio">
-                        <div class="editPorfileBtnCnt">
-                            <div class="editProfileBtn">Edit</div>
+                    <div class="nav-bar-cnt" id="nav-bar-cnt">
+                        <div class="nav-close-icon">
+                            <svg onclick="closeNavBody()" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                            </svg>
                         </div>
-                        <div class="userName">User</div>
-                        <div class="userBio">Bio</div>
+                        <div class="about-me">
+                            <audio id="myAudio" ontimeupdate="updateTime()">
+                                <source src="Cheques.mp3">
+                            </audio>
+                            <div class="abtme-title" onclick="playAudio()">
+                                <span id="audio-time"></span>
+                                <span id="UserName-Title-Id">UserName</span>
+                                <svg id="nameandbiochanger-id" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z" />
+                                </svg>
+                            </div>
+                            <div class="abtme-occtitle" id="abtme-occ-title">
+                                Bio
+                            </div>
+                        </div>
+                        <div class="daily-data-cnt">
+                            <div class="todays-data">
+                                <div class="todays-income">
+                                    Today's Net Income
+                                    <div id="todays-net-income">
+                                        0
+                                    </div>
+                                </div>
+                                <div class="seemorebtnintodays-data">
+                                    <span onclick="weeklyContainerVisibile()">See more</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navs-cnt">
+                            <div class="navs">
+                                <div>Total Earned : <span id="totalMoneyEarned"> </span></div>
+                            </div>
+                            <div class="navs">
+                                <div>Total petrol : <span id="totalPetrol"> </span></div>
+                            </div>
+                            <div class="navs">
+                                <div>Total Net Earnings : <span id="totalMoneyDifference"> </span></div>
+                            </div>
+                        </div>
+                        <div class="pdf-hndlng-cnt">
+                            <button id="downloadPdfButton" class="pdf-dwnld-btn">Download PDF</button>
+                        </div>
+                        <div class="themechangercnt">
+                            <h3>Background</h3>
+                            <div class="bgclrscnt">
+                                <div class="blackbg" onclick="changeBlack()">
+                                    <div>Click here for black background</div>
+                                </div>
+                                <div class="whitebg" onclick="changeWhite()">
+                                    <div>Click here for white background</div>
+                                </div>
+                                <div class="AFBlue" onclick="changeAFBlue()">
+                                    <div>Click here for AFB background</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="nav-navigators">
-                    <nav>
-                        <a href="#introduction" class="nav-ancr">Introduction</a>
-                        <a href="#variables" class="nav-ancr">Variables </a>
-                    </nav>
-                </div>
-            </div>
+            </nav>
         </div>
     </header>
     <main>
-        <div class="profileEditingInputsCnt">
-            <div class="profileEditInputsBox">
-                <div class="profileEditInputModalCloseCnt" onclick="closeProfInpMdl()">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 384 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path
-                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                    </svg>
-                </div>
-                <div class="pdinputsHead">Edit Profile</div>
+        <div class="modals">
 
-
-                <label for="UserNameInput">
-                    Enter your name:
-                    <input type="text" id="UserNameInput">
-                </label>
-
-                <label for="UserBioInput">
-                    Bio:
-                    <input type="text" id="UserBioInput">
-                </label>
-
-                <label for="profileDpImageInput">
-                    Select profile picture
-                    <input type="file" id="profileDpImageInput" accept=".jpg,.jpeg,.jpe">
-                </label>
-
-                <label for="profileBgImageInput">
-                    Select Background image
-                    <input type="file" id="profileBgImageInput" accept="image/*">
-                </label>
-
-
-                <button class="inputsUpdateBtn" onclick="closeProfInpMdl()">Update</button>
+            <!-- name title modals -->
+            <div class="name-occ-input-modals-cnt" id="name-occ-input-modals-cnt">
+                <form id="nameOccForm">
+                    <div class="name-occ-input-modals-cnt-close-cnt">
+                        <svg onclick="closeNameBioModal()" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                        </svg>
+                    </div>
+                    <input type="text" placeholder="Your name" name="NewUser" id="userNameInput" required>
+                    <input type="text" placeholder="Bio" name="NewUserBio" id="userOccupationInput" required>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
+
+
+            <!-- inputs Modal -->
+            <div id="myModal" class="inputs-modal">
+                <div class="modal-content">
+                    <div class="close-inpmdl">
+                        <svg class="close" onclick="closeNavBody()" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                        </svg>
+                    </div>
+                    <form id="dataForm">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" required><br>
+
+                        <label for="routeName">Route Name:</label>
+                        <input type="text" id="routeName" placeholder="Route name" required><br>
+
+                        <label for="totalAssigned">Total Assigned:</label>
+                        <input type="number" id="totalAssigned" required><br>
+
+                        <label for="totalDelivered">Total Delivered:</label>
+                        <input type="number" id="totalDelivered" required><br>
+
+                        <label for="petrol">Petrol:</label>
+                        <input type="number" id="petrol" required><br>
+
+                        <label for="moneyEarned">Total Money Earned:</label>
+                        <input type="number" id="moneyEarned" required><br>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Delete Confirmation Modal -->
+            <div id="deleteModal" class="delete-modal">
+                <div class="delete-modal-content">
+                    <h2>Delete Confirmation</h2>
+                    <p>Are you sure you want to delete this entry?</p>
+                    <div class="delete-cnfrm-btns">
+                        <button id="deleteNo">No</button>
+                        <button id="deleteYes" class="del-yes-btn">Yes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- graphs content -->
+            <div class="nav-bar-graph-data-cnt" id="nav-bar-graph-data-cnt">
+                <div class="dwgraph-txt" onclick="openGraphs()">
+                    Data Graph
+                </div>
+                <div id="earningsChartContainer">
+                    <div class="closegraph" onclick="closeGraphs()">
+                        <span>Close</span>
+                    </div>
+                    <canvas id="earningsChart"></canvas>
+                </div>
+            </div>
+
+            <div id="downloadDataModal" class="download-data-modal-cnt">
+                <div class="ddmc-data-cnt">
+                    <p>its been a while</p>
+                    <h1>Download Your Data</h1>
+                    <button id="downloadPdfButton-modalbtn" onclick="closeDownloadDataModal()"
+                        class="pdf-dwnld-btn">Download
+                        PDF</button>
+                </div>
+            </div>
+
         </div>
-        <section id="introduction">
-            <h1 class="main-title">JavaScript</h1>
-            <h2 class="sec-head">Introduction</h2>
-            <div class="flexbox flexbox-fd-clm-rev">
-                <div class="fleft flexwid40">
-                    <div class="js-intro-img">
-                        <img class="mixbm"
-                            src="https://www.interviewbit.com/blog/wp-content/uploads/2022/02/Advantages-of-JavaScript-1024x865.png"
-                            alt="Advantages of JavaScript image">
-                    </div>
-                </div>
-                <div class="fright flexwid60">
-                    <p class="color-black">
-                        JavaScript is a versatile, high-level programming language that is primarily used for enhancing
-                        the
-                        interactivity and functionality of websites. Initially developed by Netscape in 1995, it has
-                        become
-                        a cornerstone of modern web development, enabling dynamic content updates, form validation,
-                        interactive animations, and complex user interfaces without requiring page reloads. JavaScript
-                        operates on the client side, meaning it runs directly within the web browser, which allows for
-                        immediate feedback and seamless user experiences. Its ecosystem is vast, supported by numerous
-                        libraries and frameworks like React, Angular, and Vue.js, which facilitate the creation of
-                        sophisticated web applications. Beyond the browser, JavaScript has extended its reach through
-                        environments like Node.js, enabling server-side programming and the development of full-stack
-                        applications. With its ease of learning and widespread adoption, JavaScript continues to be a
-                        fundamental skill for web developers.
-                    </p>
-                    <div class="expaning-text-cnt">
-                        <div class="exp-txt-side-head">Client-Side Language</div>
-                        <div class="exp-txt-cntnt">
-                            JavaScript is often used on the client side (i.e., in the browser) to add interactivity to
-                            web pages. It can respond to user actions like clicks, form submissions, and other events.
-                        </div>
-                    </div>
-
-                    <div class="expaning-text-cnt">
-                        <div class="exp-txt-side-head">Server-Side Use</div>
-                        <div class="exp-txt-cntnt">
-                            JavaScript can also be used on the server side, thanks to environments like Node.js, which
-                            allows developers to use JavaScript to write server-side code.
-                        </div>
-                    </div>
-
-                    <div class="expaning-text-cnt">
-                        <div class="exp-txt-side-head">Scripting Language</div>
-                        <div class="exp-txt-cntnt">
-                            It's a lightweight scripting language, which means it's designed to be executed within
-                            another program, like a web browser.
-                        </div>
-                    </div>
-
-                    <div class="expaning-text-cnt">
-                        <div class="exp-txt-side-head">Versatile and Dynamic</div>
-                        <div class="exp-txt-cntnt">
-                            JavaScript can be used to manipulate HTML and CSS, control multimedia, animate elements, and
-                            more.
-                        </div>
-                    </div>
-
-                    <div class="expaning-text-cnt">
-                        <div class="exp-txt-side-head">Event-Driven</div>
-                        <div class="exp-txt-cntnt">
-                            JavaScript can respond to events such as user inputs, time-based events, and others, making
-                            it ideal for creating dynamic web applications.
-                        </div>
-                    </div>
-
-                    <div class="expaning-text-cnt">
-                        <div class="exp-txt-side-head">Object-Oriented</div>
-                        <div class="exp-txt-cntnt">
-                            JavaScript supports object-oriented programming, which means you can create objects to model
-                            real-world entities and manage complex data.
-                        </div>
-                    </div>
-                </div>
+        <section class="sec-one">
+            <div class="add-btn">
+                <button id="addButton">Add</button>
             </div>
-            <div class="flexbox">
-                <div class="fleft">
-                    <h3>Alert Function</h3>
-                    <p>
-                        The alert function in JavaScript is a simple way to display a message to the user in a dialog
-                        box. It is typically used for debugging purposes or to show important information that the user
-                        needs to acknowledge before continuing.
-                    </p>
-                    <div class="code">
-                        <span class="codered">alert</span>("Hello");
-                    </div>
-                    <img src="https://miro.medium.com/v2/resize:fit:1366/1*QpaoE2OwA1-uRV_8XrZcPg.png"
-                        alt="JavaScript alert function screenshot image">
-                    <p>
-                        When this code is executed, a dialog box will appear with the message "This is an alert
-                        message!" and an "OK" button. The script execution will pause until the user dismisses the alert
-                        by clicking the "OK" button.
-                    </p>
-                </div>
-                <div class="fright">
-                    <h3>Console</h3>
-                    <p>
-                        In JavaScript, the console object provides access to the browser's debugging console. It is a
-                        tool commonly used for logging information, debugging code, and testing. The console object has
-                        several methods, with console.log() being one of the most frequently used.
-                    </p>
-                    <p>
-                        The console.log() method is used to output messages to the web console. It is often used for
-                        debugging purposes, allowing developers to print variables, objects, and other information to
-                        understand the state and flow of the program.
-                    </p>
-                    <div class="code">
-                        <span class="code-cmnt">
-                            You can use console.log() to log the values of variables and objects:
-                        </span><br>
-                        <span class="codeblue">let</span> name = <span class="codegreen">"Sameer"</span>;<br>
-                        <span class="codeblue">let</span> age = <span class="codered">21</span>;<br>
-                        <span class="codeblue">let</span> user = { name: "Bob", age: 25 };<br><br>
-
-                        <span class="codered">console</span>.log(name); // Outputs: Alice <br>
-                        <span class="codered">console</span>.log(age); // Outputs: 30 <br>
-                        <span class="codered">console</span>.log(user); // Outputs: { name: "Bob", age: 25 } <br>
-                    </div>
-                    <div class="ulist">
-                        <div class="ul-title">Common console Methods</div>
-                        <ul>
-                            <li>
-                                console.log(message): Logs a message to the console.
-                            </li>
-                            <li>
-                                console.error(message): Logs an error message.
-                            </li>
-                            <li>
-                                console.warn(message): Logs a warning message.
-                            </li>
-                            <li>
-                                console.info(message): Logs an informational message.
-                            </li>
-                            <li>
-                                console.table(data): Displays tabular data as a table.
-                            </li>
-                            <li>
-                                console.time(label): Starts a timer with a specific labe
-                            </li>
-                        </ul>
-                    </div>
-                    <p>
-                        The console object and its methods, especially console.log(), are invaluable tools for debugging
-                        and understanding the behavior of your code. They provide a straightforward way to track
-                        variables, inspect objects, measure execution time, and more, all from within the development
-                        environment.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section id="variables">
-            <h2 class="sec-head">Variables</h2>
-            <div class="flexbox">
-                <div class="fleft">
-                    <p>
-                        In JavaScript, variables are used to store data that can be referenced and manipulated within a
-                        program. They act as containers for data values. Variables can store various types of data,
-                        including numbers, strings, objects, arrays, functions, and more.
-                    </p>
-                    <div>
-                        <h3>Variable Rules</h3>
-                        <div class="ulist">
-                            <ul>
-                                <li>Variable names are case sensitive; “a” & “A” is different.</li>
-                                <li>Only letters, digits, underscore( _ ) and $ is allowed. (not even space)</li>
-                                <li>Only a letter, underscore( _ ) or $ should be 1st character.</li>
-                                <li>Reserved words cannot be variable names.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ulist">
-                        <p>In JavaScript, you can declare variables using the var, let, or const keywords:</p>
-                        <ul>
-                            <li>
-                                <b class="imp">var</b>: The var keyword is used to declare a variable. It has function
-                                scope and can be
-                                redeclared.
-                                <div class="code">
-                                    <span class="codeblue">var</span> name = "Alice";<br>
-                                    <span class="codered">console</span>.log(name); <span class="code-cmnt">Outputs:
-                                        Alice </span><br>
-                                    <br>
-                                    <span class="codeblue">var</span> age = 30; <br>
-                                    <span class="codered">console</span>.log(age); <span class="code-cmnt">Outputs:
-                                        30</span>
-
-                                </div>
-                            </li>
-                            <li>
-                                <b class="imp">let</b>: The let keyword is used to declare a block-scoped variable. It
-                                cannot be redeclared
-                                within the same scope.
-                                <div class="code">
-                                    <span class="codeblue">let</span> city = "New York";<br>
-                                    <span class="codered">console</span>.log(city); <span class="code-cmnt">Outputs:
-                                        New York </span><br>
-                                    <br>
-                                    city = "Los Angeles"; <br>
-                                    <span class="codered">console</span>.log(city); <span class="code-cmnt">Outputs:
-                                        Los Angeles</span>
-
-                                </div>
-                            </li>
-                            <li>
-                                <b class="imp">const</b>: The const keyword is used to declare a block-scoped, read-only
-                                constant. The value of a const variable cannot be changed through reassignment.
-                                <div class="code">
-                                    <span class="codeblue">const</span> country = "USA";<br>
-                                    <span class="codered">console</span>.log(country); <span class="code-cmnt">Outputs:
-                                        USA </span><br>
-                                    <br>
-                                    <span class="code-cmnt">
-                                        Attempting to reassign a const variable will result in an error
-                                    </span><br>
-                                    <span class="code-cmnt">
-                                        // country = "Canada"; // Uncaught TypeError: Assignment to constant variable.
-                                    </span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <img src="assets/Varibales image.jpg" alt="Variables declaration image">
-
-                </div>
-                <div class="fright">
-                    <div>
-                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*6-ThlXm6TQUqoZhaD1PwAg.png"
-                            alt="variables image">
-                        <h3>Varibales Scope</h3>
-                        <p>
-                            The scope of a variable determines where it can be accessed within the code.
-                        </p>
-                        <div class="ulist">
-                            <ul>
-                                <li>
-
-                                    <b class="imp">Global Scope</b>: Variables declared outside of any function or block
-                                    have global scope.
-                                    They can be accessed from anywhere in the code.
-
-                                    <div class="code">
-                                        <span class="codeblue">var</span> globalVar = <span class="codegreen">" I am
-                                            global"</span> ; <br>
-
-                                        <span class="codeblue">function</span> <span class="codered">test</span>() {
-                                        <br>
-                                        <span class="codered codemleft">console</span>.log(globalVar); <span
-                                            class="code-cmnt">Outputs: I am
-                                            global</span> <br>
-                                        } <br>
-
-                                        <span class="codered">test</span>();<br>
-                                        <span class="codered">console</span>.log(globalVar); <span
-                                            class="code-cmnt">Outputs: I am
-                                            global</span>
-                                    </div>
-
-                                </li>
-                                <li>
-                                    <b class="imp">Function Scope</b>: Variables declared with var inside a function are
-                                    scoped to that function. They cannot be accessed from outside the function.
-
-                                    <div class="code">
-                                        <b class="codeblue">function</b> <b class="codered">test</b>() { <br>
-                                        <b class="codeblue codemleft">var</b> localVar = <b class="codegreen">"I am
-                                            local"</b>; <br>
-                                        <b class="codered codemleft">console</b>.log(localVar); <b
-                                            class="code-cmnt">Outputs: I am local </b><br>
-                                        } <br><br>
-
-                                        <b class="codered">test</b>(); <br>
-
-                                        <div class="code-cmnt">console.log(localVar); // Uncaught ReferenceError:
-                                            localVar
-                                            is not defined</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <b class="imp">Block Scope</b>: Variables declared with let or const inside a block
-                                    (e.g., inside {}) are scoped to that block.
-
-                                    <div class="code">
-                                        { <br>
-                                        <b class="codeblue codemleft">let</b> blockVar = <b class="codegreen">"I am
-                                            block
-                                            scoped"</b>; <br>
-                                        <b class="codered codemleft">console</b>.log(blockVar); <b class="code-cmnt">
-                                            Outputs: I am block scoped </b><br>
-                                        } <br>
-                                        <b class="code-cmnt"> console.log(blockVar); // Uncaught ReferenceError:
-                                            blockVar is not defined</b>
-
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p>
-                                <b>var</b>:Variable can be re-declared and updated.A global scope variable.
-                            </p>
-                            <p>
-                                <b>let</b>:Variable cannot be re-declared but can be updated.A block scope variable.
-                            </p>
-                            <p>
-                                <b>const</b>:Variable cannot be re-declared or updated.A block scope variable.
-                            </p>
-                        </div>
-                        <h4>Conclusion:</h4>
-                        <p>
-                            Variables are fundamental to programming in JavaScript. They are used to store and
-                            manipulate
-                            data, and understanding their behavior, scope, and the differences between var, let, and
-                            const is crucial for writing effective and efficient JavaScript code.
-                        </p>
-                    </div>
-                </div>
+            <div id="dataContainer" class="datacontainer">
+                <table id="dataTable" class="datatable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Route</th>
+                            <th>T-Assigned</th>
+                            <th>T-Delivered</th>
+                            <th>Clousure</th>
+                            <th>Petrol</th>
+                            <th>Earned</th>
+                            <th>Net Earning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Existing data rows will be added here -->
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>
     <footer>
-        <div class="footer-cnt">
-            <div class="footer-heading">
-                <img src="assets/expand-button.png" alt="">
-            </div>
-            <div class="footer-stng-cnt">
-                <div class="theme-changer">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 384 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path
-                            d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z" />
-                    </svg>
-                </div>
-                <div class="notes-cnt">
-                    <a target="_blank" href="https://drive.google.com/drive/folders/1nweZ9gZBRqqgPfdPCLJbJPrfuAARV_8e">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <div class="footer">
+            <div class="foott1">
+                <span onclick="openContactForm()">
+                    Get in touch
+                </span>
+                <div class="getintouch-cnt" id="getintouch-cnt">
+                    <div class="close-gitform">
+                        <svg onclick="closeContactForm()" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path
-                                d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
                         </svg>
-                    </a>
+                    </div>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="ac03a7b5-56d6-48e0-8ff1-2a72e3936d14">
+                        <h3>Get in touch</h3>
+                        <input type="text" name="Name" placeholder="Name" required>
+                        <input type="number" name="Age" placeholder="Age" required>
+                        <input type="email" placeholder="email" required name="email">
+                        <textarea name="My suggestion" id="" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>
+            </div>
+            <div class="foott2">
+                Designed and developed by <a target="_blank" href="https://www.instagram.com/sammu01_"> Mohammad</a>
             </div>
         </div>
     </footer>
@@ -469,9 +303,7 @@
 
 
 
-
     <script src="script.js"></script>
-    <script src="websitecode.js"></script>
 </body>
 
 </html>
