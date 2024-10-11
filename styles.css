@@ -55,6 +55,7 @@ body {
   fill: var(--white);
   font-size: 1em;
   color: var(--white);
+  filter: opacity(0);
 }
 
 /* ----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER----HEADER---- */
