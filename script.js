@@ -522,7 +522,8 @@ function closeGraphs() {
   document.querySelector(".dwgraph-txt").style.fontSize = "1em";
   document.querySelector(".dwgraph-txt").style.position = "unset";
   document.querySelector(".dwgraph-txt").style.zIndex = "10";
-  document.querySelector(".dwgraph-txt").style.margin = "12px 0";
+  document.querySelector(".dwgraph-txt").style.margin = " 0";
+  document.querySelector(".dwgraph-txt").style.marginBottom = " 12px";
   document.querySelector(".dwgraph-txt").style.left = "0";
   document.querySelector(".dwgraph-txt").style.top = "0";
 
